@@ -169,7 +169,7 @@ function dibujarRuleta() {
         
             setTimeout(() => {
                 // Cálculo del premio final
-                const anguloPremio = (360 - (anguloActual % 360)) % 360;
+                const anguloPremio = (270 - (anguloActual % 360) + 360) % 360;
                 const indicePremioFinal = Math.floor(anguloPremio / (360 / numSectores));
                 const premioGanador = premios[indicePremioFinal];
         

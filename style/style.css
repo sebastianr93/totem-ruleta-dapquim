@@ -112,15 +112,17 @@ body {
 /* Flecha apuntando a la ruleta */
 .flecha {
     position: absolute;
-    top: 50%;
-    left: calc(50% + 210px);
-    transform: translateY(-50%) rotate(182deg);
+    top: -1px;                /* la sube arriba del canvas */
+    left: 50%;                 /* centrada horizontalmente */
+    transform: translateX(-50%) rotate(0deg); /* apunta hacia abajo */
     width: 0;
     height: 0;
-    border-left: 45px solid #d37904;
-    border-top: 22px solid transparent;
-    border-bottom: 22px solid transparent;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 35px solid #d37904; /* triángulo apuntando hacia abajo */
+    z-index: 10;
 }
+
 
 /* Botón Girar en el centro */
 #girarBtn {
