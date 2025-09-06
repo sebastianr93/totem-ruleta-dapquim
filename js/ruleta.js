@@ -40,10 +40,10 @@ function precargarImagenes(callback) {
             { tipo: "texto", valor: "¡OTRA OPORTUNIDAD!🙂" },
             { tipo: "imagen", valor: "img/FLY HUNT.png" },
             { tipo: "imagen", valor: "img/11.png" },
-            { tipo: "imagen", valor: "img/DAPQUIM BIROME GANADORA.png" },
+            { tipo: "imagen", valor: "img/DAPQUIM BOTELLA PARA VOS.png" },
             { tipo: "imagen", valor: "img/9.png" },
             { tipo: "imagen", valor: "img/HUAGRO.png" },
-            { tipo: "imagen", valor: "img/DAPQUIM BOTELLA PARA VOS.png" }
+            { tipo: "imagen", valor: "img/DAPQUIM BIROME GANADORA.png" },
         ];
         const colores = ["#FF0000", "#8A2BE2", "#0000FF", "#008000", "#FFFF00", "#FFA500"];
 
