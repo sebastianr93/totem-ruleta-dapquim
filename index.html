@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ruleta de Premios</title>
+    <link rel="stylesheet" href="style/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+
+<body>
+    <audio id="audioGiro" src="./files/ruleta5seg.mp3" preload="auto"></audio>
+
+    <!-- Contenedor central con ruleta e imágenes laterales -->
+    <div class="ruleta-wrapper">
+        
+        <div class="ruleta-container">
+            <canvas id="ruleta" class="ruleta"></canvas>
+            <div class="flecha"></div>
+            <button id="girarBtn" onclick="girarRuleta()">SUERTE</button>
+        </div>
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+
+
+
+    <script src="./js/ruleta.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
