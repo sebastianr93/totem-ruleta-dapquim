@@ -160,6 +160,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     transition: background 0.2s;
     touch-action: manipulation;
+    
 }
 
 #btnMenu:active {
@@ -173,6 +174,7 @@ body {
     font-size: 18px;
     user-select: none;
     touch-action: manipulation;
+    
 }
 
 @keyframes fadeInMenu {
@@ -255,11 +257,13 @@ body {
         right: 10px;
         font-size: 28px;
         padding: 6px;
+        
     }
     #validacionMenu {
         padding: 16px 10px;
         font-size: 16px;
         max-width: 90vw;
+        
     }
 }
 
