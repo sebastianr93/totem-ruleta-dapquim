@@ -24,38 +24,6 @@ body {
 }
 
 
-
-/* === Logos superiores === */
-.logos-superiores {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* 👈 Alineamos todos abajo */
-    gap: 60px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    transform: translateY(120px);
-}
-
-.logo-superior-derecho {
-    max-width: 130px;
-    height: auto;
-    transform: translate(-120px, -140px); /* Mueve 50px a la izquierda y 140px hacia arriba */
-    
-}
-
-.logo-superior-izquierdo {
-    max-width: 130px;
-    height: auto;
-    transform: translate(120px, -195px);/* Mueve 50px a la izquierda y 140px hacia arriba */
-}
-
-.logo-central {
-    max-width: 130px; /* 👈 Más pequeño */
-    transform: translateY(-210px); /* 👈 Subido para que parezca más arriba */
-}
-
-
 /* === Contenedor Ruleta + imágenes laterales === */
 .ruleta-wrapper {
     display: flex;
@@ -64,7 +32,7 @@ body {
     gap: 40px;
     flex-wrap: wrap;
     margin-bottom: 30px;
-    margin-top: 410px;
+    margin-top: 100px;
 }
 
 .img-robot {
@@ -90,7 +58,6 @@ body {
     max-height: 80px;
     width: auto;
 }
-
 .ruleta-container {
     position: relative;
     width: 600px;
@@ -99,6 +66,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 
 .ruleta {
     width: 100%;
@@ -165,42 +133,136 @@ body {
     }
 }
 
-/* Resultado */
-.resultado {
-    margin-top: 60px;
-    font-size: 1px;
-    font-weight: 500;
-    color: #ffb300;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    padding: 10px 20px;
-    display: inline-block;
-    border-radius: 10px;
-    visibility: hidden;
-}
-.resultado img {
-    width: 1px;
-    height: 1px;
-}
-.logo-izquierdo,
-.logo-derecho {
-    transform: translateY(10px); /* 👈 Bajados para que queden más abajo */
+#resultado {
+  position: absolute;
+  bottom: 50%;
+  z-index: 4;
+  margin: 20px auto 0 auto;
+  width: max-content;
+  max-width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.logos-inferiores {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 60px;
-    margin-top: 250px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    transform: translateY(-40px);
+.animacion-ganador {
+  opacity: 1;
+  transform: scale(1.2);
 }
 
-.logo-inferior-izquierdo,
-.logo-inferior-central,
-.logo-inferior-derecho {
-    max-width: 130px;
-    height: auto;
+/* === MENÚ HAMBURGUESA Y CONTROL === */
+#btnMenu {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s;
+    touch-action: manipulation;
 }
+
+#btnMenu:active {
+    background: rgba(221, 221, 221, 0.3);
+}
+
+#menuControl {
+    animation: fadeInMenu 0.3s;
+    max-width: 320px;
+    min-width: 220px;
+    font-size: 18px;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+#menuControl label {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#menuControl select, #menuControl input[type="checkbox"] {
+    font-size: 16px;
+    margin-left: 8px;
+    padding: 4px;
+}
+
+#menuControl button {
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+#cartelModoPrueba {
+    background: #fffbe6;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 16px;
+    border: 1px solid #FFD700;
+}
+
+#cartelReiniciar {
+    background: #eaffea;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 16px;
+    border: 1px solid #008000;
+}
+
+#validacionMenu {
+    animation: fadeInMenu 0.2s;
+    font-size: 20px;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+#validacionMenu button {
+    font-size: 18px;
+    margin: 8px 12px 0 12px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#validacionMenu #btnOk {
+    background: #008000;
+    color: #fff;
+}
+
+#validacionMenu #btnCancel {
+    background: #aaa;
+    color: #fff;
+}
+
+/* Responsive para menú en móviles */
+@media (max-width: 600px) {
+    #menuControl {
+        right: 10px;
+        top: 60px;
+        padding: 12px 10px;
+        font-size: 16px;
+        min-width: 160px;
+        max-width: 90vw;
+    }
+    #btnMenu {
+        top: 10px;
+        right: 10px;
+        font-size: 28px;
+        padding: 6px;
+    }
+    #validacionMenu {
+        padding: 16px 10px;
+        font-size: 16px;
+        max-width: 90vw;
+    }
+}
+
+
+
+
