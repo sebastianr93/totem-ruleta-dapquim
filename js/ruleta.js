@@ -465,7 +465,7 @@ function crearMenuControl() {
   btnMenu.style.zIndex = "1001";
   btnMenu.style.fontSize = "32px";
   btnMenu.style.background = "#ffffff02";
-  btnMenu.style.border = "2px solid #3007e7ff";
+  btnMenu.style.border = "2px solid #3007e71f";
   btnMenu.style.borderRadius = "8px";
   btnMenu.style.padding = "8px";
   btnMenu.style.cursor = "pointer";
