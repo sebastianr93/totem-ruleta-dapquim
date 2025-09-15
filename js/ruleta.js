@@ -228,25 +228,45 @@ function getSegmentosDisponibles() {
   );
 }
 
+function getPremiosDisponibles(segmento) {
+  return segmento.premios.filter(p => p.stock > 0 || p.stock === Infinity);
+}
+
+
 function elegirPremio() {
-  const segmentos = getSegmentosDisponibles();
-  const indiceSegmento = Math.floor(Math.random() * segmentos.length);
-  const segmento = segmentos[indiceSegmento];
+  const segmentos = configuracionDias[diaActual];
 
-  const premiosDisponibles = segmento.premios.filter(
-    p => p.stock > 0 || p.stock === Infinity
-  );
+  // Filtramos segmentos con al menos un premio disponible
+  const segmentosConStock = segmentos.filter(seg => getPremiosDisponibles(seg).length > 0);
 
-  const indicePremio = Math.floor(Math.random() * premiosDisponibles.length);
-  const premio = premiosDisponibles[indicePremio];
+  let segmentoSeleccionado, premioSeleccionado;
 
-  if (!modoPrueba && premio.stock !== Infinity) {
-    premio.stock--;
+  if (segmentosConStock.length === 0) {
+    // Ningún premio disponible, usamos el segmento "La próxima será"
+    segmentoSeleccionado = segmentos.find(seg => seg.segmento.valor.includes("PRÓXIMA"));
+    premioSeleccionado = segmentoSeleccionado.premios[0];
+  } else {
+    // Elegir un segmento aleatorio con stock
+    const indiceSegmento = Math.floor(Math.random() * segmentosConStock.length);
+    segmentoSeleccionado = segmentosConStock[indiceSegmento];
+
+    // Elegir un premio aleatorio dentro de ese segmento
+    const premiosDisponibles = getPremiosDisponibles(segmentoSeleccionado);
+    const indicePremio = Math.floor(Math.random() * premiosDisponibles.length);
+    premioSeleccionado = premiosDisponibles[indicePremio];
+
+    // Descontar stock si no es infinito ni modo prueba
+    if (!modoPrueba && premioSeleccionado.stock !== Infinity) {
+      premioSeleccionado.stock--;
+    }
   }
 
-  // devolvemos el segmento completo, no solo segmento.segmento
-  return { segmento, premio, indiceSegmento, totalSegmentos: segmentos.length };
+  const totalSegmentos = segmentos.length;
+  const indiceSegmentoOriginal = segmentos.indexOf(segmentoSeleccionado);
+
+  return { segmento: segmentoSeleccionado, premio: premioSeleccionado, indiceSegmento: indiceSegmentoOriginal, totalSegmentos };
 }
+
 
 // ===============================
 // DIBUJAR RULETA
